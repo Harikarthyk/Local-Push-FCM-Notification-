@@ -2,25 +2,28 @@ import {LocalNotification} from './pushNotification';
 import React, {useEffect} from 'react';
 import {Text, View, Button, StyleSheet} from 'react-native';
 import PushNotification from 'react-native-push-notification';
-// import messaging from '@react-native-firebase/messaging';
 
 const App = () => {
-  // messaging().setBackgroundMessageHandler(async remoteMessage => {
-  //   console.log('Message handled in the background!', remoteMessage);
-  // });
   useEffect(() => {
+
+    //Configure PushNotification at the beginning of the Application 
     PushNotification.configure({
       onRegister: function (token) {
         console.log('TOKEN:', token);
       },
+
+      //On Any Notification that pop us onNotification pop's out 
       onNotification: function (notification) {
         console.log('LOCAL NOTIFICATION ==>', notification);
       },
+
+      //for FCM 
       senderID: '686876508699',
       popInitialNotification: true,
       requestPermissions: true,
     });
-    PushNotification.getDeliveredNotifications(res => console.log(res));
+
+    //Crreate channel with id and name which are required parameters for creatign a push Notification  
     PushNotification.createChannel(
       {
         channelId: 'channel-id', // (required)

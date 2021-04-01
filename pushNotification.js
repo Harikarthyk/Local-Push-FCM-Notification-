@@ -8,18 +8,11 @@ import PushNotification from 'react-native-push-notification';
 //   requestPermissions: true,
 // });
 
+//Local Push Notification is called on click of the button
 export const LocalNotification = () => {
-  // console.log('Invoked Local Push Notification ... ');
-  // PushNotification.localNotificationSchedule({
-  //   message: 'My Notification Message', // (required)
-  //   date: new Date(Date.now() + 60 * 1000), // in 60 secs
-  //   actions: ['ReplyInput'],
-  //   reply_placeholder_text: 'Write your response...', // (required)
-  //   reply_button_text: 'Reply', // (required)
-  // });
   PushNotification.localNotification({
     channelId: 'channel-id',
-    title: 'Local Notification Title',
-    message: 'Expand me to see more',
+    title: 'Local Push Notification Title',
+    message: 'This is message Area of the notification',
   });
 };

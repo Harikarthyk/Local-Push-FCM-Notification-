@@ -28,7 +28,7 @@
 
         <meta-data  android:name="com.dieam.reactnativepushnotification.notification_color"
                     android:resource="@color/white"/> 
-        <receiver
+        <!-- <receiver
             android:name="com.google.android.gms.gcm.GcmReceiver"
             android:exported="true"
             android:permission="com.google.android.c2dm.permission.SEND" >
@@ -36,7 +36,7 @@
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
                 <category android:name="com.notification" />
             </intent-filter>
-        </receiver>
+        </receiver> -->
         <receiver android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationActions" />
         <receiver android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationPublisher" />
         <receiver android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationBootEventReceiver">
@@ -53,6 +53,8 @@
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
             </intent-filter>
         </service>
+        <receiver android:name="io.invertase.firebase.notifications.RNFirebaseNotificationReceiver"></receiver>
+<receiver android:enabled="true" android:exported="true"  android:name="io.invertase.firebase.notifications.RNFirebaseNotificationsRebootReceiver"></receiver>
         <service
             android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationListenerService"
             android:exported="false" >

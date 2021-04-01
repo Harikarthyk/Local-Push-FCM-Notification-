@@ -12,6 +12,7 @@ import com.facebook.soloader.SoLoader;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.Arrays;
+import  io.invertase.firebase.app.ReactNativeFirebaseAppPackage ;
 import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
 
 public class MainApplication extends Application implements ReactApplication {
@@ -27,7 +28,8 @@ public class MainApplication extends Application implements ReactApplication {
         protected List<ReactPackage> getPackages() {
           return Arrays.<ReactPackage>asList(
             new MainReactPackage(),
-            new ReactNativePushNotificationPackage() // <---- Add the Package
+            new ReactNativePushNotificationPackage(),
+            new ReactNativeFirebaseAppPackage()
           );
         }
 

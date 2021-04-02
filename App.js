@@ -5,25 +5,24 @@ import PushNotification from 'react-native-push-notification';
 
 const App = () => {
   useEffect(() => {
-
-    //Configure PushNotification at the beginning of the Application 
+    //Configure PushNotification at the beginning of the Application
     PushNotification.configure({
       onRegister: function (token) {
         console.log('TOKEN:', token);
       },
 
-      //On Any Notification that pop us onNotification pop's out 
+      //On Any Notification that pop us onNotification pop's out
       onNotification: function (notification) {
         console.log('LOCAL NOTIFICATION ==>', notification);
       },
 
-      //for FCM 
+      //for FCM
       senderID: '686876508699',
       popInitialNotification: true,
       requestPermissions: true,
     });
 
-    //Crreate channel with id and name which are required parameters for creatign a push Notification  
+    //Crreate channel with id and name which are required parameters for creatign a push Notification
     PushNotification.createChannel(
       {
         channelId: 'channel-id', // (required)
